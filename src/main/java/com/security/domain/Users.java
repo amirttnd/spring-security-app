@@ -1,5 +1,7 @@
 package com.security.domain;
 
+import com.security.model.UserModel;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -10,9 +12,16 @@ public class Users {
     Long id;
     String username;
     String password;
-    Boolean enable = true;
+    Boolean enabled = true;
     Date dateCreated;
     Date lastUpdated;
+
+
+    public Users(UserModel userModel) {
+        this.username = userModel.getUsername();
+        this.password = userModel.getPassword();
+        this.enabled = userModel.getEnabled();
+    }
 
     @PrePersist
     public void onCreate() {
@@ -50,11 +59,11 @@ public class Users {
     }
 
     public Boolean getEnable() {
-        return enable;
+        return enabled;
     }
 
     public void setEnable(Boolean enable) {
-        this.enable = enable;
+        this.enabled = enable;
     }
 
     public Date getDateCreated() {
@@ -71,5 +80,9 @@ public class Users {
 
     public void setLastUpdated(Date lastUpdated) {
         this.lastUpdated = lastUpdated;
+    }
+
+    public static Users create(UserModel userModel){
+        return new Users(userModel);
     }
 }

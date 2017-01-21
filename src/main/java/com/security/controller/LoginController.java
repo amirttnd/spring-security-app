@@ -15,7 +15,7 @@ public class LoginController {
         return "login";
     }
 
-    @Secured({"ROLE_ADMIN","ROLE_USER"})
+    @Secured("ROLE_USER")
     @RequestMapping("/index")
     public String success() {
         return "index";
