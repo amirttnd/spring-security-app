@@ -39,6 +39,9 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </div>
         </div>
+        <div>
+            <a href="/user/create">Create New Account</a>
+        </div>
     </form>
 </div>
 </body>

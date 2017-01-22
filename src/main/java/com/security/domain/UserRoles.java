@@ -36,4 +36,11 @@ public class UserRoles {
     public void setAuthority(String authority) {
         this.authority = authority;
     }
+
+    public static UserRoles create(String username,String authority){
+        UserRoles userRoles=new UserRoles();
+        userRoles.username=username;
+        userRoles.authority=authority;
+        return userRoles;
+    }
 }
